@@ -8,8 +8,21 @@
 # Author: Hiwot Zewdie (hz196@duke.edu)
 # Date:   Fall 2020
 #------------------------------------------------------------
+
+# create a variable pointing to the data file 
+file_name = './data/raw/sara.txt'
+
+#create a file object from the file 
+file_object = open(file_name,'r')
+
+#read entire content of data file into lists 
+line_list = file_object.readlines()
+
+#close the file
+file_object.close()
+
 #Pretend we read one line of data from file 
-lineString ='20616	29051	7/3/2003 9:13	3	66	33.898	-77.958	27.369	-46.309	6	0	-126	529	3	401 651134.7	0'
+lineString = line_list[100]
 
 #split the string into a line of data ite,s 
 lineData = lineString.split()
@@ -22,4 +35,4 @@ obs_lat = lineData[6]
 obs_lon = lineData[7]
 
 #print location of sara
-print(f"Record {record_id} indicates Sara was seen at lat:{obs_lat},lon:{obs_lon} on {obs_date}")
+print(f"Record {record_id} indicates Sara was seen at lat:{obs_lat},lon: {obs_lon} on {obs_date}")
